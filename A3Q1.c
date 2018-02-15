@@ -15,7 +15,17 @@ int main(int argc, char *argv[]){
 		printf("no file found\n");
 		exit(0);
 	}
-	char * word = "quiet";
+	printf("Enter a word: ");
+	char word[MAX_WORD_SIZE] = "";
+	while(!(fgets(word, MAX_WORD_SIZE, stdin))){
+		printf("\nTry again: ");
+	}
+	int i;
+	for(i = 0; word[i] != '\0'; i++){
+		if(word[i] == '\n'){
+			word[i] = '\0';
+		}
+	}
 	char match[MAX_WORD_SIZE];
 	while(fgets(match, MAX_WORD_SIZE, reviews)){
 		char* pword = word;
