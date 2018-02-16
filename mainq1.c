@@ -23,13 +23,14 @@ int main(int argc, char *argv[]){
 	printf("Enter a word: ");
 	fgets(word, MAX_WORD_SIZE, stdin);
 	int i;
-	printf("k");
 	for(i = 0; word[i] != '\n'; i++){
-		printf("%c", word[i]);
 	}
 	word[i] = '\0';
-	printf("so far");
 	getWordStats(word, reviews, scoreNum, scoreAvg);
-	
+	if (scoreNum !=0){
+		printf("%s appeared %d times\n", word, scoreNum);
+		float avg = scoreAvg/scoreNum;
+		printf("The average score for reviews containing %s is %f", word, avg);
+	}
 	return 1;
 }
